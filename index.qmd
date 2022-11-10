@@ -2,319 +2,287 @@
 title: "witch-tutorial"
 ---
 
-# Manual for the sorcerer's apprentice
 
+# Manual for the sorcerer's apprentice
 Please find [here](https://drive.google.com/drive/folders/1ifQP_E3w6_pJc-g7ObihBMmsaVPMMJl8?usp=share_link):
 
--   Models: base versions of DICE and RICE50x
--   Slides on GAMS and IAMs
--   Videos of lectures on GAMS and IAMs
+- Models: base versions of DICE and RICE50x
+- Slides on GAMS and IAMs
+- Videos of lectures on GAMS and IAMs
 
 ## Tools: add something to the Path
 
 ### Add to Environment Variables in Windows
-
-To add a program to the PATH, search in Windows for environment variables and click on the button "Environment Variables" at the bottom of the window that opens up (should be the window of Sytem properties \> Advanced tab). Under "User variables" select the "Path" option end edit it; click "New" and paste the address of the folder of the specific software you want to add. This is the address of the *.exe* file of the program; it is usually found in the main folder of the program or in the bin folder.
+To add a program to the PATH, search in Windows for environment variables and click on the button "Environment Variables" at the bottom of the window that opens up (should be the window of Sytem properties > Advanced tab). Under "User variables" select the "Path" option end edit it; click "New" and paste the address of the folder of the specific software you want to add. This is the address of the _.exe_ file of the program; it is usually found in the main folder of the program or in the bin folder.
 
 ### Add to \$PATH in MacOS
-
-You can check what is already in your \$PATH by running
-
-    echo $PATH
-
-If the program you're interested in is not already present, you need to add it. Depending on the macOS version you're running on your Mac, this can be done via either the bash shell or zsh (z shell). - For older macOS versions (before Catalina): bash (.bashrc or .bash_profile) - For macOS Catalina and later: zsh (.zshrc or .zprofile) You need to edit the right file
-
-    vim ~/.zprofile
-
-OR
-
-    open ~/.zprofile
-
-by adding
-
-    export $PATH:/path/to/directory
-
+You can check what is already in your \$PATH by running 
+```
+echo $PATH
+```
+If the program you're interested in is not already present, you need to add it.
+Depending on the macOS version you’re running on your Mac, this can be done via either the bash shell or zsh (z shell).
+  -  For older macOS versions (before Catalina): bash (.bashrc or .bash\_profile)
+  -  For macOS Catalina and later: zsh (.zshrc or .zprofile)
+You need to edit the right file 
+```
+vim ~/.zprofile
+```
+OR 
+```
+open ~/.zprofile
+```
+by adding 
+```
+   export $PATH:/path/to/directory
+```
 ## Install software
 
 ### Homebrew for MacOS
-
 Homebrew provides a fast way to install programs in MacOS. Learn how to install it from here: <https://brew.sh>
 
 ### GAMS installation
 
-You can always download the latest distribution at <https://www.gams.com/download> Please make sure to read the release notes <https://www.gams.com/latest/docs/RN_MAIN.html>
+You can always download the latest distribution at <https://www.gams.com/download>
+Please make sure to read the release notes <https://www.gams.com/latest/docs/RN_MAIN.html>
 
-If you are installing GAMS from scratch, select in the installation process "Browse for a license file" and select gamslice.txt. If you are updating the license, copy the six lines (from the gamslice.txt file - someone should give it to you) to the clipboard. Then, open GAMS Studio and click on "Help \> GAMS Licensing" or "Help \> About GAMS", depending on your version of GAMS Studio. A message box will notify you that a GAMS license has been found on the clipboard. If 'Yes' is clicked, the new license will be installed automatically and presented via the "About GAMS" dialog. For more detailed installation instructions, please visit: <https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL> The full system documentation is provided electronically with the software and also available online at <https://www.gams.com/latest/docs>
+If you are installing GAMS from scratch, select in the installation process "Browse for a license file" and select gamslice.txt.
+If you are updating the license, copy the six lines (from the gamslice.txt file - someone should give it to you) to the clipboard. Then, open GAMS Studio and click on "Help > GAMS Licensing" or "Help > About GAMS", depending on your version of GAMS Studio. A message box will notify you that a GAMS license has been found on the clipboard. If 'Yes' is clicked, the new license will be installed automatically and presented via the "About GAMS" dialog. For more detailed installation instructions, please visit: <https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL>
+The full system documentation is provided electronically with the software and also available online at <https://www.gams.com/latest/docs> 
 
 Include GAMS in your environment variables. Add the address path of the version you are currently working with. To check if this worked properly, open Windows Command Prompt, type `gams` and see if it is recognized. (You can do the same thing in Terminal in MacOS)
 
 ### Install R
-
 Install the latest version of R and of RStudio. Install Rtools <https://cran.rstudio.com/bin/windows/Rtools/> and add it to the environment variables (the bin folder, as in `C:/rtools42/mingw64/bin`).
 
 ### Install Git
-
 Download Git for Windows <https://git-scm.com/download/win>. Install also GitKraken or GitHub Desktop. Add the latter(s) to the environment variables. Remember that if you are a student, you can ask for a student pro account of GitHub; using this to log into GitKraken allows you to download the full version.
 
 For MacOS you can use homebrew
-
-    brew install git
+```
+brew install git
+```
 
 ### Install VS Code
-
 After having downloaded Visual Studio Code, install the "gms" extension to visualize correctly colors in GAMS.
 
 ### Install Open VPN
+In order to have access to the Zeus Cluster you need a VPN server, which can be obtained through the client Open VPN. You can install it for  [Mac OS X](https://openvpn.net/client-connect-vpn-for-mac-os/) and for [Windows](https://openvpn.net/client-connect-vpn-for-windows/) following the instructions. You need a licence to use it, which you can ask to the IT team (refer to nicola.sanavio@cmcc.it). They will provide you a link to a shared Google Drive folder where you will find a folder called scc-dmw vpn containing your licence. You will have to download it and extract it, then follow the instructions that appear when you first open Open VPN.
 
-In order to have access to the Zeus Cluster you need a VPN server, which can be obtained through the client Open VPN. You can install it for [Mac OS X](https://openvpn.net/client-connect-vpn-for-mac-os/) and for [Windows](https://openvpn.net/client-connect-vpn-for-windows/) following the instructions. You need a licence to use it, which you can ask to the IT team (refer to nicola.sanavio\@cmcc.it). They will provide you a link to a shared Google Drive folder where you will find a folder called scc-dmw vpn containing your licence. You will have to download it and extract it, then follow the instructions that appear when you first open Open VPN.
 
--   Open "OpenVPN Connect" program.
--   Click to Tab "File"
--   Drag and drop your file configuration or browse (should be a .OVPN file)
--   Set your profile name and click to add
--   Everything should run
+  -  Open “OpenVPN Connect” program.
+  -  Click to Tab “File”
+  -  Drag and drop your file configuration or browse (should be a .OVPN file)
+  -  Set your profile name and click to add
+  -  Everything should run
+
 
 ### Install the Ubuntu subsystem (Necessary only on Windows)
-
-On Windows it is suggested to install it directly from Microsoft Store. Look for Windows Subsystem for Linux or WSL and press "install". When this is over open Windows Terminal and type
-
-    wsl --install
-
+On Windows it is suggested to install it directly from Microsoft Store. Look for Windows Subsystem for Linux or WSL and press "install". When this is over open Windows Terminal and type 
+```
+wsl --install
+```
 It will open a list of different distribution that you can choose. If you go for Ubuntu you should write `wsl --install -d Ubuntu`. At the end of the process it should open a Ubuntu window, then ask you for a username and a password for your account (remember them!).
+
 
 Install <https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview>
 
 ### GitHub Instructions
-
 <https://github.com/witch-team/witch>
 
 ## Run WITCH for the first time
-
-1.  Clone the `witch` and the `witch-data` repositories
-2.  Following the instructions in the READme in witch-data, install dvc in the WSL2 subsystem and dvc pull all the files in the witch-data folder
-3.  Again in WSL2, move in the witch folder and run `dvc pull`
-4.  Open RStudio, set the working directory in the witch folder, and run input/translate_witch_data
-5.  Open GAMStudio or GAMS IDE and run witch
+1. Clone the `witch` and the `witch-data` repositories
+2. Following the instructions in the READme in witch-data, install dvc in the WSL2 subsystem and dvc pull all the files in the witch-data folder
+3. Again in WSL2, move in the witch folder and run `dvc pull`
+4. Open RStudio, set the working directory in the witch folder, and run input/translate\_witch\_data
+5. Open GAMStudio or GAMS IDE and run witch
 
 Easier alternative:
 
-1.  Clone the `witch` repository
-2.  Launch `make` from the terminal
+1. Clone the `witch` repository
+2. Launch `make` from the terminal
 
 ### What if WITCH calibration does not converge?
+Sometimes if there has been some structural change or variable names have been changed, the model can take too much time to converge in it calibration. This is because the starting points are too distant to the solution and the solver takes too much time to converge. The convergence algorithm of the dynamic calibration is not working very well sometimes, in particular if some big changes are done with new variables and new interactions.
+Usually, we solve this convergence problem, by stopping the calibration and restarting it with another starting point than the one provided by default to find a better one. A good choice for the new starting point is the `all_data_temp.gdx` after few iterations. Then relaunch the calibration with the parameter `- -startgdx`:
 
-Sometimes if there has been some structural change or variable names have been changed, the model can take too much time to converge in it calibration. This is because the starting points are too distant to the solution and the solver takes too much time to converge. The convergence algorithm of the dynamic calibration is not working very well sometimes, in particular if some big changes are done with new variables and new interactions. Usually, we solve this convergence problem, by stopping the calibration and restarting it with another starting point than the one provided by default to find a better one. A good choice for the new starting point is the `all_data_temp.gdx` after few iterations. Then relaunch the calibration with the parameter `- -startgdx`:
+```
+bsub -q p_gams -n 18 -R "span[ptile=18]" -P R000 -J data_witch17/results_ssp2_calib.gdx -K gams run_witch.gms output=ssp2_calib.lst --calibration=1 gdxcompress=1 --n=witch17 --verbose=1 errmsg=1 --startgdx=all_data_temp_ssp2_calib --startboost=1
+```
 
-    bsub -q p_gams -n 18 -R "span[ptile=18]" -P R000 -J data_witch17/results_ssp2_calib.gdx -K gams run_witch.gms output=ssp2_calib.lst --calibration=1 gdxcompress=1 --n=witch17 --verbose=1 errmsg=1 --startgdx=all_data_temp_ssp2_calib --startboost=1
 
 \noindent Once you manage to converge, you should commit the new starting point using the files generated by the calibration:
-
-    results_ssp2_bau.gdx
-    data_witch17/data_tfp_ssp2.gdx
+```
+results_ssp2_bau.gdx
+data_witch17/data_tfp_ssp2.gdx
+```
 
 \noindent Overwrite the files in input/data (postfixed by the regional aggregation):
 
-    cp data_witch17/data_tfp_ssp2.gdx input/data/data_tfp_ssp2_witch17.gdx
-    cp results_ssp2_bau.gdx input/data/data_results_ssp2_bau_witch17.gdx
+```
+cp data_witch17/data_tfp_ssp2.gdx input/data/data_tfp_ssp2_witch17.gdx
+cp results_ssp2_bau.gdx input/data/data_results_ssp2_bau_witch17.gdx
+```
 
 \noindent Update the information for dvc and commit it in your branch
 
-    dvc add input/data/data_tfp_ssp2_witch17.gdx input/data/data_results_ssp2_bau_witch17.gdx
-    git add input/data/data_results_ssp2_bau_witch17.gdx.dvc input/data/data_tfp_ssp2_witch17.gdx.dvc
-    git commit -m "update starting points"
+```
+dvc add input/data/data_tfp_ssp2_witch17.gdx input/data/data_results_ssp2_bau_witch17.gdx
+git add input/data/data_results_ssp2_bau_witch17.gdx.dvc input/data/data_tfp_ssp2_witch17.gdx.dvc
+git commit -m "update starting points"
+
+```
 
 \noindent Don't forget to push the files to the DVC remote drive
 
-    dvc push
+```
+dvc push
+```
 
 ### Adding data to WITCH/RICE
 
-1.  witch-data
+1. witch-data
+    
+    -  Create an R script that processes the raw data and creates a long csv with column names iso3, year, variable, value
+    -  Put the R script and the source files in a dedicated folder in witch-data. Open the R project `witch-datasets.Rproj` and run your R script. Let it create the output file
+    -  Open the terminal, go in the local folder and do `dvc add` for the input and the output files. A message will be displayed saying to do git add those files.
+    -  `git commit` the files just added and `git push` them
+    -  In the terminal, go in the witch-data folder  and do `dvc push`. You need to have access to the 'remote drive'
 
-    -   Create an R script that processes the raw data and creates a long csv with column names iso3, year, variable, value
-    -   Put the R script and the source files in a dedicated folder in witch-data. Open the R project `witch-datasets.Rproj` and run your R script. Let it create the output file
-    -   Open the terminal, go in the local folder and do `dvc add` for the input and the output files. A message will be displayed saying to do git add those files.
-    -   `git commit` the files just added and `git push` them
-    -   In the terminal, go in the witch-data folder and do `dvc push`. You need to have access to the 'remote drive'
-
-2.  make and translate witch data
-
-    -   Copy-paste the `.csv` file inside `witch/input/data`
-    -   Open the terminal, go in the local folder and do `dvc add` for the `.csv` file. A message will be displayed saying to `git add` those files.
-    -   `git commit` the files just added and `git push` them
-    -   Create a `make_data.R` script
-    -   In the terminal, from the witch folder, run
-
-    <!-- -->
-
-        Rscript input/translate_witch_data.R --dvc-single
-
+2. make and translate witch data
+  
+    -  Copy-paste the `.csv` file inside `witch/input/data`
+    -  Open the terminal, go in the local folder and do `dvc add` for the `.csv` file. A message will be displayed saying to `git add` those files.
+    -  `git commit` the files just added and `git push` them
+    -  Create a `make_data.R` script
+    -  In the terminal, from the witch folder, run
+    ```
+    Rscript input/translate_witch_data.R --dvc-single
+    ```
     Running `translate\_witch\_data.R` from Rstudio might return a dvc error. If it says a specific folder is not editable, run it by writing `sudo` before.
+    -  If there is an error because one file is not found, go inside the `input/data` directory from the terminal and run `dvc pull [filename.ext].dvc`, i.e. writing .dvc after its own extension
 
-    -   If there is an error because one file is not found, go inside the `input/data` directory from the terminal and run `dvc pull [filename.ext].dvc`, i.e. writing .dvc after its own extension
+3. witch. Load the files in a gams file and work with them
 
-3.  witch. Load the files in a gams file and work with them
 
 ## Useful commands and debug
 
--   Operations to clone witch and start working in an existing branch
+-  Operations to clone witch and start working in an existing branch
 
-    -   `git clone git@github.com:witch-team/witch.git`
-    -   `cd witch` (enter in the new folder with the clone)
-    -   `git checkout branchname`
-    -   `dvc pull` (while in input/data). If it asks you for an authorization code and pasting the code in the browser yields an error, skip directly to the next point
-    -   `make`
+    -  `git clone git@github.com:witch-team/witch.git` 
+    -  `cd witch` (enter in the new folder with the clone)
+    -  `git checkout branchname`
+    -  `dvc pull` (while in input/data). If it asks you for an authorization code and pasting the code in the browser yields an error, skip directly to the next point
+    -  `make`
 
--   If you need to pull a commit from GitHub do
+-  If you need to pull a commit from GitHub do
 
-    -   `git pull`
+    -  `git pull` 
+    -  `make clean` (this will remove old data files)
+    -  `make` (to run all)
 
-    -   `make clean` (this will remove old data files)
+        -  `make data` (if you just want to translate WITCH data into usable files)
+        -  `make -B data` (useful if you just want to re translate one file, with -B you force the operation)
 
-    -   `make` (to run all)
+-  DVC pull fix error	
 
-        -   `make data` (if you just want to translate WITCH data into usable files)
-        -   `make -B data` (useful if you just want to re translate one file, with -B you force the operation)
+```
+  for FILE in *.dvc; do dvc pull $FILE; done
+```
 
--   DVC pull fix error
+When doing `dvc pull` and receiving the error: `Is your cache up to date? <https://error.dvc.org/missing-files>` loop through every single file in the folder input/data and `dvc pull` them singularly to have the same result without any error.  In case there are subfolders, run the following:
+```
+    for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;
+```
 
-<!-- -->
-
-      for FILE in *.dvc; do dvc pull $FILE; done
-
-When doing `dvc pull` and receiving the error: `Is your cache up to date? <https://error.dvc.org/missing-files>` loop through every single file in the folder input/data and `dvc pull` them singularly to have the same result without any error. In case there are subfolders, run the following:
-
-        for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;
 
 ### Git
+- Check if the files are up to date: `git status`
+- Select a branch `git checkout`
+- Check the differences between local and remote: `git diff`
 
--   Check if the files are up to date: `git status`
--   Select a branch `git checkout`
--   Check the differences between local and remote: `git diff`
 
 ### Bash
+- Move between folders: `cd`
 
--   Move between folders: `cd`
+    - `cd/..` to go back one folder
+- View the content a file: `cat`
+- View the end of a file: `tail`
+- List files in a folder: `ls`
 
-    -   `cd/..` to go back one folder
+    - `-ltrh` order by most recent and display last edit 
+- Move a file: `mv`
+- Copy a file: `cp`
+- Remove a file: `rm`
 
--   View the content a file: `cat`
+    - `-r` when selecting a folder, remove also all subfolders
 
--   View the end of a file: `tail`
-
--   List files in a folder: `ls`
-
-    -   `-ltrh` order by most recent and display last edit
-
--   Move a file: `mv`
-
--   Copy a file: `cp`
-
--   Remove a file: `rm`
-
-    -   `-r` when selecting a folder, remove also all subfolders
-
--   Open a file: `vim`
-
--   Date and time of last edit of a file: `stat -c %y [filename]`
+- Open a file: `vim`
+- Date and time of last edit of a file: `stat -c %y [filename]`
 
 ### Zeus
 
 #### Base commands
+-  Run WITCH on Zeus 
+```
+    bsub -n 18 -R "span[ptile=18]" -q p_gams -P 0477 gams run_witch.gms
+```
+- See the output of the run: `bpeek`
 
--   Translate_witch_data on Zeus
+    - See only the last part of the output of the run `-f` 
+- See the list of active jobs: `bjobs`
+- Kill a job: `bkill`
 
-First you make sure that you have everything up to date with `git pull`, then you can run 
-
-        Rscript input/translate_witch_data.R --dvc-single
-        
-If Zeus ask you to open an external link you can't do it because it's not in your local server, so something went wrong. It could be that you have some credential file in your folder that you need to remove. Look for user_credential files with `ls`, then remove them with `rm {file_name}`. After this procedure you could be able to run translate_witch_data.R with
-
-        Rscript input/translate_witch_data.R
-or
-
-        Rscript input/translate_witch_data.R --dvc-single
-
-
-
--   Run WITCH on Zeus
-
-<!-- -->
-
-        bsub -n 18 -R "span[ptile=18]" -q p_gams -P 0477 gams run_witch.gms
-
--   See the output of the run: `bpeek`
-
-    -   See only the last part of the output of the run `-f`
-
--   See the list of active jobs: `bjobs`
-
--   Kill a job: `bkill`
-
-    -   All: `bkill 0`
-    -   By ID: `bkill [jobid]`
-
+    - All: `bkill 0`
+    - By ID: `bkill [jobid]`
+    
 #### Manage files
+- Manually copy one (or more) files from/to Zeus:
 
--   Manually copy one (or more) files from/to Zeus:
+    - Zeus address: `zeus:/users_home/seme/[user]/work/witch/`
+```
+Scp [departure_address\filename] [destination_address/]
+scp zeus:/users_home/seme/aa1111/work/witch/results_bau.gdx C:\Users\asdasd\Documents\GitHub\witch
+```
+- Update a folder on ZEUS based on the local witch folder: `sh sync2zeus.sh` (it actually runs: `sync -uavzP --exclude=.git --exclude=.Rproj.user --exclude=*.Rproj ../witch zeus:/work/seme/aa1111/witch`)
 
-    -   Zeus address: `zeus:/users_home/seme/[user]/work/witch/`
-
-    <!-- -->
-
-        Scp [departure_address\filename] [destination_address/]
-        scp zeus:/users_home/seme/aa1111/work/witch/results_bau.gdx C:\Users\asdasd\Documents\GitHub\witch
-
--   Update a folder on ZEUS based on the local witch folder: `sh sync2zeus.sh` (it actually runs: `sync -uavzP --exclude=.git --exclude=.Rproj.user --exclude=*.Rproj ../witch zeus:/work/seme/aa1111/witch`)
 
 #### Check and debug
+- Open the WITCH error file and refresh it every 2 seconds: `watch tail errors_ssp2_calib.txt`
 
--   Open the WITCH error file and refresh it every 2 seconds: `watch tail errors_ssp2_calib.txt`
+    - Visualize more than the default number of lines (e.g. 40) `-n 40`
+-  Explore gdx files (e.g. WITCH results) in Zeus
 
-    -   Visualize more than the default number of lines (e.g. 40) `-n 40`
+    - If I want to read for example `data_validation.gdx`, reading all the different items
+```
+    gdxdump data_validation.gdx symbols
+```
 
--   Explore gdx files (e.g. WITCH results) in Zeus
+    - If I want to explore a specific item
+```
+    gdxdump data_validation.gdx Symb=mcost_inv_valid_irena_csp
+```
 
-    -   If I want to read for example `data_validation.gdx`, reading all the different items
+    - To search through the results you can add `| less` at the end in order to move freely in it
+```
+    gdxdump data_validation.gdx Symb=mcost_inv_valid_irena_csp | less
+```
 
-    <!-- -->
-
-         gdxdump data_validation.gdx symbols
-
-    -   If I want to explore a specific item
-
-    <!-- -->
-
-         gdxdump data_validation.gdx Symb=mcost_inv_valid_irena_csp
-
-    -   To search through the results you can add `| less` at the end in order to move freely in it
-
-    <!-- -->
-
-         gdxdump data_validation.gdx Symb=mcost_inv_valid_irena_csp | less
-
-    -   You can also filter the data with `grep`. Example:
-
-    <!-- -->
-
-        gdxdump all_data_temp_ssp2_bau.gdx symb=MCOST_INV | grep usa | grep elpc_new | grep '.L ' | less
-
--   Rsyinc while excluding some files
-
-<!-- -->
-
-        rsync -uavzP --exclude=.git --exclude=.Rproj.user --exclude=*.Rproj
-        ../witch zeus:/work/seme/aa11111/witch
-
--   Look for for errors in a `.lst` file opened with `vim`: `/\*\*\*\*`
--   Look for for infeasibilities in a `.lst` file opened with `vim`: `/INFES`
--   Tool to convert a `.sh` file from `dos` to `unix`. Necessary after each Windows edit of the original `.sh` file. Execute in case of error `/bin/sh^M: bad interpreter: No such file or directory`
-
-<!-- -->
-
-    dos2unix [filename]
-
+    - You can also filter the data with `grep`. Example:
+```
+gdxdump all_data_temp_ssp2_bau.gdx symb=MCOST_INV | grep usa | grep elpc_new | grep '.L ' | less
+```
+-  Rsyinc while excluding some files
+```
+    rsync -uavzP --exclude=.git --exclude=.Rproj.user --exclude=*.Rproj
+    ../witch zeus:/work/seme/aa11111/witch
+```
+- Look for for errors in a `.lst` file opened with `vim`: `/\*\*\*\*`
+- Look for for infeasibilities in a `.lst` file opened with `vim`: `/INFES`
+- Tool to convert a `.sh` file from `dos` to `unix`. Necessary after each Windows edit of the original `.sh` file. Execute in case of error `/bin/sh^M: bad interpreter: No such file or directory`
+```
+dos2unix [filename]
+```
 #### GAMS good practices to avoid weird errors
-
--   If you can write one equation instead of two, do it. Helps very much the solver
--   Never go in a new line with a (e.g. multiplicative) `*`, even if there is a `if set [modulename]` in front of it
+- If you can write one equation instead of two, do it. Helps very much the solver
+- Never go in a new line with a (e.g. multiplicative) `*`, even if there is a `if set [modulename]` in front of it

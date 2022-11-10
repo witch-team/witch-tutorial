@@ -4,6 +4,7 @@ project:
 
 website:
   title: "witch-tutorial"
+  site-url: https://witch-team.github.io/witch-tutorial/
   navbar:
     left:
       - href: index.qmd

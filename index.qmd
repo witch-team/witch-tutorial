@@ -209,13 +209,14 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
 - View the content a file: `cat`
 - View the end of a file: `tail`
 - List files in a folder: `ls`
+
+    - `-ltrh` order by most recent and display last edit 
 - Move a file: `mv`
 - Copy a file: `cp`
 - Remove a file: `rm`
 
     - `-r` when selecting a folder, remove also all subfolders
 
-    - `-ltrh` order by most recent and display last edit 
 - Open a file: `vim`
 - Date and time of last edit of a file: `stat -c %y [filename]`
 

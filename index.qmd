@@ -223,6 +223,20 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
 ### Zeus
 
 #### Base commands
+
+-   Translate_witch_data on Zeus
+
+First you make sure that you have everything up to date with `git pull`, then you can run 
+
+        Rscript input/translate_witch_data.R --dvc-single
+        
+If Zeus ask you to open an external link you can't do it because it's not in your local server, so something went wrong. It could be that you have some credential file in your folder that you need to remove. Look for user_credential files with `ls`, then remove them with `rm {file_name}`. After this procedure you could be able to run translate_witch_data.R with
+
+        Rscript input/translate_witch_data.R
+or
+
+        Rscript input/translate_witch_data.R --dvc-single
+        
 -  Run WITCH on Zeus 
 ```
     bsub -n 18 -R "span[ptile=18]" -q p_gams -P 0477 gams run_witch.gms

@@ -201,10 +201,12 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
 
 
 ### Git
-- Initialize an existing directory as a Git repository:` 
+- Initialize an existing directory as a Git repository: `git init`
 - Check if the files are up to date: `git status`
 - Select a branch `git checkout`
 - Check the differences between local and remote: `git diff`
+- Check the difference of what is staged but not yet commited: `git diff --staged`
+- Merge the specified branch’s history into the current one: `git merge [branch]`
 
 
 ### Bash

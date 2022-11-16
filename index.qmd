@@ -92,6 +92,10 @@ Install <https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-ove
 
 ## Run WITCH for the first time
 1. Clone the `witch` and the `witch-data` repositories
+    -  `git clone git@github.com:witch-team/witch.git` 
+    -  `cd witch` (enter in the new folder with the clone)
+    -  `git checkout branchname`
+    
 2. Following the instructions in the READme in witch-data, install dvc in the WSL2 subsystem and dvc pull all the files in the witch-data folder
 3. Again in WSL2, move in the witch folder and run `dvc pull`
 4. Open RStudio, set the working directory in the witch folder, and run input/translate\_witch\_data
@@ -197,6 +201,7 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
 
 
 ### Git
+- Initialize an existing directory as a Git repository:` 
 - Check if the files are up to date: `git status`
 - Select a branch `git checkout`
 - Check the differences between local and remote: `git diff`
@@ -212,6 +217,7 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
 
     - `-ltrh` order by most recent and display last edit 
 - Move a file: `mv`
+- Change a name: `mv [old_name] [new_name]`
 - Copy a file: `cp`
 - Remove a file: `rm`
 - Remove a directory if empty: `rmdir [directory_name]`
@@ -219,6 +225,7 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
      - `-r` when selecting a folder, remove also all subfolders so you could do `rm -r [directory_name]`
     - If this does not work, first remove all the filese inside: `rm [directory_name]/*`
     - Then remove the empty directory: `rmdir [directory_name]`
+    - Sometimes it works with: `rm -rf [directory_name]`
    
 
 - Open a file: `vim`

@@ -214,8 +214,12 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
 - Move a file: `mv`
 - Copy a file: `cp`
 - Remove a file: `rm`
-
-    - `-r` when selecting a folder, remove also all subfolders
+- Remove a directory if empty: `rmdir [directory_name]`
+- To remove non empty directory
+     - `-r` when selecting a folder, remove also all subfolders so you could do `rm -r [directory_name]`
+    - If this does not work, first remove all the filese inside: `rm [directory_name]/*`
+    - Then remove the empty directory: `rmdir [directory_name]`
+   
 
 - Open a file: `vim`
 - Date and time of last edit of a file: `stat -c %y [filename]`

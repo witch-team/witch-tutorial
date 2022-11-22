@@ -263,6 +263,15 @@ or
     - All: `bkill 0`
     - By ID: `bkill [jobid]`
     
+- Commit on zeus
+
+From the repository on zeus, add the edited files in the remote repository with `git add modules/[edited_file_name] `
+
+Commit the changes to the remote repository with an explanatory message `git commit -m "[descriptive_message]" `
+
+Finish with `git push `
+
+
 #### Manage files
 - Manually copy one (or more) files from/to Zeus:
 

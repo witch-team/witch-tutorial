@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -129,6 +129,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a></li>
   <li><a href="#zeus" id="toc-zeus" class="nav-link" data-scroll-target="#zeus">Zeus</a></li>
   </ul></li>
+  <li><a href="#how-to-add-new-insights-to-witch-tutorial" id="toc-how-to-add-new-insights-to-witch-tutorial" class="nav-link" data-scroll-target="#how-to-add-new-insights-to-witch-tutorial">How to add new insights to witch-tutorial</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -230,7 +231,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="run-witch-for-the-first-time" class="level2">
 <h2 class="anchored" data-anchor-id="run-witch-for-the-first-time">Run WITCH for the first time</h2>
 <ol type="1">
-<li>Clone the <code>witch</code> and the <code>witch-data</code> repositories</li>
+<li>Clone the <code>witch</code> and the <code>witch-data</code> repositories
+<ul>
+<li><code>git clone git@github.com:witch-team/witch.git</code></li>
+<li><code>cd witch</code> (enter in the new folder with the clone)</li>
+<li><code>git checkout branchname</code></li>
+</ul></li>
 <li>Following the instructions in the READme in witch-data, install dvc in the WSL2 subsystem and dvc pull all the files in the witch-data folder</li>
 <li>Again in WSL2, move in the witch folder and run <code>dvc pull</code></li>
 <li>Open RStudio, set the working directory in the witch folder, and run input/translate_witch_data</li>
@@ -316,9 +322,12 @@ git commit -m "update starting points"
 <section id="git" class="level3">
 <h3 class="anchored" data-anchor-id="git">Git</h3>
 <ul>
+<li>Initialize an existing directory as a Git repository: <code>git init</code></li>
 <li>Check if the files are up to date: <code>git status</code></li>
 <li>Select a branch <code>git checkout</code></li>
 <li>Check the differences between local and remote: <code>git diff</code></li>
+<li>Check the difference of what is staged but not yet commited: <code>git diff --staged</code></li>
+<li>Merge the specified branch’s history into the current one: <code>git merge [branch]</code></li>
 </ul>
 </section>
 <section id="bash" class="level3">
@@ -330,13 +339,21 @@ git commit -m "update starting points"
 </ul></li>
 <li><p>View the content a file: <code>cat</code></p></li>
 <li><p>View the end of a file: <code>tail</code></p></li>
-<li><p>List files in a folder: <code>ls</code></p></li>
-<li><p>Move a file: <code>mv</code></p></li>
-<li><p>Copy a file: <code>cp</code></p></li>
-<li><p>Remove a file: <code>rm</code></p>
+<li><p>List files in a folder: <code>ls</code></p>
 <ul>
-<li><p><code>-r</code> when selecting a folder, remove also all subfolders</p></li>
-<li><p><code>-ltrh</code> order by most recent and display last edit</p></li>
+<li><code>-ltrh</code> order by most recent and display last edit</li>
+</ul></li>
+<li><p>Move a file: <code>mv</code></p></li>
+<li><p>Change a name: <code>mv [old_name] [new_name]</code></p></li>
+<li><p>Copy a file: <code>cp</code></p></li>
+<li><p>Remove a file: <code>rm</code></p></li>
+<li><p>Remove a directory if empty: <code>rmdir [directory_name]</code></p></li>
+<li><p>To remove non empty directory</p>
+<ul>
+<li><code>-r</code> when selecting a folder, remove also all subfolders so you could do <code>rm -r [directory_name]</code></li>
+<li>If this does not work, first remove all the filese inside: <code>rm [directory_name]/*</code></li>
+<li>Then remove the empty directory: <code>rmdir [directory_name]</code></li>
+<li>Sometimes it works with: <code>rm -rf [directory_name]</code></li>
 </ul></li>
 <li><p>Open a file: <code>vim</code></p></li>
 <li><p>Date and time of last edit of a file: <code>stat -c %y [filename]</code></p></li>
@@ -346,6 +363,17 @@ git commit -m "update starting points"
 <h3 class="anchored" data-anchor-id="zeus">Zeus</h3>
 <section id="base-commands" class="level4">
 <h4 class="anchored" data-anchor-id="base-commands">Base commands</h4>
+<ul>
+<li>Translate_witch_data on Zeus</li>
+</ul>
+<p>First you make sure that you have everything up to date with <code>git pull</code>, then you can run</p>
+<pre><code>    Rscript input/translate_witch_data.R --dvc-single
+    </code></pre>
+<p>If Zeus ask you to open an external link you can’t do it because it’s not in your local server, so something went wrong. It could be that you have some credential file in your folder that you need to remove. Look for user_credential files with <code>ls</code>, then remove them with <code>rm {file_name}</code>. After this procedure you could be able to run translate_witch_data.R with</p>
+<pre><code>    Rscript input/translate_witch_data.R</code></pre>
+<p>or</p>
+<pre><code>    Rscript input/translate_witch_data.R --dvc-single
+    </code></pre>
 <ul>
 <li>Run WITCH on Zeus</li>
 </ul>
@@ -361,7 +389,11 @@ git commit -m "update starting points"
 <li>All: <code>bkill 0</code></li>
 <li>By ID: <code>bkill [jobid]</code></li>
 </ul></li>
+<li><p>Commit on zeus</p></li>
 </ul>
+<p>From the repository on zeus, add the edited files in the remote repository with <code>git add modules/[edited_file_name]</code></p>
+<p>Commit the changes to the remote repository with an explanatory message <code>git commit -m "[descriptive_message]"</code></p>
+<p>Finish with <code>git push</code></p>
 </section>
 <section id="manage-files" class="level4">
 <h4 class="anchored" data-anchor-id="manage-files">Manage files</h4>
@@ -416,10 +448,21 @@ scp zeus:/users_home/seme/aa1111/work/witch/results_bau.gdx C:\Users\asdasd\Docu
 <li>If you can write one equation instead of two, do it. Helps very much the solver</li>
 <li>Never go in a new line with a (e.g.&nbsp;multiplicative) <code>*</code>, even if there is a <code>if set [modulename]</code> in front of it</li>
 </ul>
-
-
 </section>
 </section>
+</section>
+<section id="how-to-add-new-insights-to-witch-tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-add-new-insights-to-witch-tutorial">How to add new insights to witch-tutorial</h2>
+<p>If you are a pro sorcerer you are ready to add the new info that you think can be useful for the others!</p>
+<ul>
+<li>Clone the WITCH repository witch-tutorial</li>
+<li>Inside the witch-tutorial folder you will find a file named <code>index.qmd</code></li>
+<li>Open it in Rstudio and add some new instruction/information</li>
+<li>Switch to Source and not visual to see the code where you can write</li>
+<li>Please be respectful of the others work, don’t eliminate anything that is needed and try to be short but complete :)</li>
+</ul>
+
+
 </section>
 </section>
 

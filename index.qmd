@@ -322,3 +322,18 @@ dos2unix [filename]
 #### GAMS good practices to avoid weird errors
 - If you can write one equation instead of two, do it. Helps very much the solver
 - Never go in a new line with a (e.g. multiplicative) `*`, even if there is a `if set [modulename]` in front of it
+
+
+
+## How to add new insights to witch-tutorial
+
+If you are a pro sorcerer you are ready to add the new info that you think can be useful for the others!
+
+- Clone the WITCH repository witch-tutorial
+- Inside the witch-tutorial folder you will find a file named `index.qmd`
+- Open it in Rstudio and add some new instruction/information
+- Switch to Source and not visual to see the code where you can write
+- Please be respectful of the others work, don't eliminate anything that is needed and try to be short but complete :)
+
+
+

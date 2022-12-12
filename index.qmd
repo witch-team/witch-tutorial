@@ -132,15 +132,16 @@ cp results_ssp2_bau.gdx input/data/data_results_ssp2_bau_witch17.gdx
 
 ```
 dvc add input/data/data_tfp_ssp2_witch17.gdx input/data/data_results_ssp2_bau_witch17.gdx
-git add input/data/data_results_ssp2_bau_witch17.gdx.dvc input/data/data_tfp_ssp2_witch17.gdx.dvc
+git add input/data/data_tfp_ssp2_witch17.gdx.dvc input/data/data_results_ssp2_bau_witch17.gdx.dvc 
 git commit -m "update starting points"
 
 ```
 
-\noindent Don't forget to push the files to the DVC remote drive
+\noindent Don't forget to push the files to the DVC remote drive and then the git commit
 
 ```
 dvc push
+git push
 ```
 
 ### Adding data to WITCH/RICE

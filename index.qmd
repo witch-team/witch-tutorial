@@ -206,9 +206,14 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
 - Check if the files are up to date: `git status`
 - Select a branch `git checkout`
 - Check the differences between local and remote: `git diff`
-- Check the difference of what is staged but not yet commited: `git diff --staged`
+- Check the difference of what is staged but not yet committed: `git diff --staged`
 - Merge the specified branch’s history into the current one: `git merge [branch]`
-
+- Stash the current work - i.e. save it for later use. E.g. you might have done edits on Zeus and want to pull other edits you made on your machine and committed from there `git stash`
+    - To see the last stash: `git stash show -p`
+    - Different stashes can be addressed by: `stash@{0}`, where `0` is the default one
+    - To see the differences between your stashed changes and any branch: `git diff stash@{0} branchname`
+    - Apply the stashed changes: `git stash pop`
+    - Clean all your stashes: `git stash clear`
 
 ### Bash
 - Move between folders: `cd`
@@ -232,6 +237,11 @@ When doing `dvc pull` and receiving the error: `Is your cache up to date? <https
    
 
 - Open a file: `vim`
+    - Move freely within the doc with arrow keys
+    - To enter insert mode (i.e. edit) press `i`
+    - Close the file: `:q`
+        - Discard changes you made: `:q!`
+        - Write changes you made: `:wq` 
 - Date and time of last edit of a file: `stat -c %y [filename]`
 
 ### Zeus
@@ -288,6 +298,7 @@ scp zeus:/users_home/seme/aa1111/work/witch/results_bau.gdx C:\Users\asdasd\Docu
 - Open the WITCH error file and refresh it every 2 seconds: `watch tail errors_ssp2_calib.txt`
 
     - Visualize more than the default number of lines (e.g. 40) `-n 40`
+    - Exit with `CTRL+C`
 -  Explore gdx files (e.g. WITCH results) in Zeus
 
     - If I want to read for example `data_validation.gdx`, reading all the different items
@@ -320,6 +331,7 @@ gdxdump all_data_temp_ssp2_bau.gdx symb=MCOST_INV | grep usa | grep elpc_new | g
 ```
 dos2unix [filename]
 ```
+
 #### GAMS good practices to avoid weird errors
 - If you can write one equation instead of two, do it. Helps very much the solver
 - Never go in a new line with a (e.g. multiplicative) `*`, even if there is a `if set [modulename]` in front of it

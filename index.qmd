@@ -189,17 +189,12 @@ git push
         -  `make data` (if you just want to translate WITCH data into usable files)
         -  `make -B data` (useful if you just want to re translate one file, with -B you force the operation)
 
--  DVC pull fix error	
+-  DVC pull fix error. When doing `dvc pull` and receiving the error: `Is your cache up to date? <https://error.dvc.org/missing-files>` loop through every single file in the folder input/data and `dvc pull` them singularly to have the same result without any error. 
 
-```
-  for FILE in *.dvc; do dvc pull $FILE; done
-```
-
-When doing `dvc pull` and receiving the error: `Is your cache up to date? <https://error.dvc.org/missing-files>` loop through every single file in the folder input/data and `dvc pull` them singularly to have the same result without any error.  In case there are subfolders, run the following:
-```
-    for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;
-```
-
+    - In bash: `for FILE in *.dvc; do dvc pull $FILE; done`
+        - In case there are subfolders, run the following:
+        ```for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;```
+    - In Windows: `FOR %i IN (*.dvc) DO dvc pull %i`
 
 ### Git
 - Initialize an existing directory as a Git repository: `git init`

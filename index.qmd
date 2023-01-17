@@ -196,6 +196,11 @@ git push
         ```for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;```
     - In Windows: `FOR %i IN (*.dvc) DO dvc pull %i`
 
+### Witch-plot
+- Error: `Warning in install.packages: package ‘taRifx’ is not available for this version of R`
+    - Solution: `remotes::install_version(package="taRifx",version="1.0.6.2")`
+
+
 ### Git
 - Initialize an existing directory as a Git repository: `git init`
 - Check if the files are up to date: `git status`

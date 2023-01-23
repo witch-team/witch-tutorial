@@ -194,7 +194,7 @@ git push
     - In bash: `for FILE in *.dvc; do dvc pull $FILE; done`
         - In case there are subfolders, run the following:
         ```for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;```
-    - In Windows: `FOR %i IN (*.dvc) DO dvc pull %i`
+    - In Windows: `FOR %i IN (*.dvc) DO dvc pull "%i"`
 
 ### Local: witch-translate and witch-plot
 - Error: `Error in gdxInfo(filename, dump = F, returnDF = T):` `Error loading the GDX API: use igdx() to diagnose and solve the problem`

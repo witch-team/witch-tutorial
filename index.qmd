@@ -334,6 +334,8 @@ gdxdump all_data_temp_ssp2_bau.gdx symb=MCOST_INV | grep usa | grep elpc_new | g
 dos2unix [filename]
 ```
 
+- Check who is using a specific queue, e.g. `p_gams`: `bjobs -u all | grep p_gams`
+
 #### GAMS good practices to avoid weird errors
 - If you can write one equation instead of two, do it. Helps very much the solver
 - Never go in a new line with a (e.g. multiplicative) `*`, even if there is a `if set [modulename]` in front of it

@@ -335,6 +335,9 @@ dos2unix [filename]
 ```
 
 - Check who is using a specific queue, e.g. `p_gams`: `bjobs -u all | grep p_gams`
+- Check how much CPU is being used: `top`
+- Check how much space you are using: `gpfsrepquota`
+- Check memory occupied by different directories: `du -h -d1`
 
 #### GAMS good practices to avoid weird errors
 - If you can write one equation instead of two, do it. Helps very much the solver

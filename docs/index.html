@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -125,6 +125,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#useful-commands-and-debug" id="toc-useful-commands-and-debug" class="nav-link" data-scroll-target="#useful-commands-and-debug">Useful commands and debug</a>
   <ul class="collapse">
+  <li><a href="#local-witch-translate-and-witch-plot" id="toc-local-witch-translate-and-witch-plot" class="nav-link" data-scroll-target="#local-witch-translate-and-witch-plot">Local: witch-translate and witch-plot</a></li>
   <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
   <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a></li>
   <li><a href="#zeus" id="toc-zeus" class="nav-link" data-scroll-target="#zeus">Zeus</a></li>
@@ -259,11 +260,12 @@ data_witch17/data_tfp_ssp2.gdx</code></pre>
 cp results_ssp2_bau.gdx input/data/data_results_ssp2_bau_witch17.gdx</code></pre>
 <p>Update the information for dvc and commit it in your branch</p>
 <pre><code>dvc add input/data/data_tfp_ssp2_witch17.gdx input/data/data_results_ssp2_bau_witch17.gdx
-git add input/data/data_results_ssp2_bau_witch17.gdx.dvc input/data/data_tfp_ssp2_witch17.gdx.dvc
+git add input/data/data_tfp_ssp2_witch17.gdx.dvc input/data/data_results_ssp2_bau_witch17.gdx.dvc 
 git commit -m "update starting points"
 </code></pre>
-<p>Don’t forget to push the files to the DVC remote drive</p>
-<pre><code>dvc push</code></pre>
+<p>Don’t forget to push the files to the DVC remote drive and then the git commit</p>
+<pre><code>dvc push
+git push</code></pre>
 </section>
 <section id="adding-data-to-witchrice" class="level3">
 <h3 class="anchored" data-anchor-id="adding-data-to-witchrice">Adding data to WITCH/RICE</h3>
@@ -314,11 +316,28 @@ git commit -m "update starting points"
 <li><code>make -B data</code> (useful if you just want to re translate one file, with -B you force the operation)</li>
 </ul></li>
 </ul></li>
-<li><p>DVC pull fix error</p></li>
+<li><p>DVC pull fix error. When doing <code>dvc pull</code> and receiving the error: <code>Is your cache up to date? &lt;https://error.dvc.org/missing-files&gt;</code> loop through every single file in the folder input/data and <code>dvc pull</code> them singularly to have the same result without any error.</p>
+<ul>
+<li>In bash: <code>for FILE in *.dvc; do dvc pull $FILE; done</code>
+<ul>
+<li>In case there are subfolders, run the following: <code>for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;</code></li>
+</ul></li>
+<li>In Windows: <code>FOR %i IN (*.dvc) DO dvc pull %i</code></li>
+</ul></li>
 </ul>
-<pre><code>  for FILE in *.dvc; do dvc pull $FILE; done</code></pre>
-<p>When doing <code>dvc pull</code> and receiving the error: <code>Is your cache up to date? &lt;https://error.dvc.org/missing-files&gt;</code> loop through every single file in the folder input/data and <code>dvc pull</code> them singularly to have the same result without any error. In case there are subfolders, run the following:</p>
-<pre><code>    for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;</code></pre>
+<section id="local-witch-translate-and-witch-plot" class="level3">
+<h3 class="anchored" data-anchor-id="local-witch-translate-and-witch-plot">Local: witch-translate and witch-plot</h3>
+<ul>
+<li>Error: <code>Error in gdxInfo(filename, dump = F, returnDF = T):</code> <code>Error loading the GDX API: use igdx() to diagnose and solve the problem</code>
+<ul>
+<li>Solution: first launch <code>igdx()</code> in the console, it should return: <code>The GDX library has not been loaded</code>. Then try <code>igdx(gams_path)</code>, where <code>gams_path</code> is the path of the GAMS <em>.exe</em> file. If it says the library has been loaded, include this last line at the beginning of the code</li>
+</ul></li>
+<li>Error: <code>Warning in install.packages: package ‘taRifx’ is not available for this version of R</code>
+<ul>
+<li>Solution: <code>remotes::install_version(package="taRifx",version="1.0.6.2")</code></li>
+</ul></li>
+</ul>
+</section>
 <section id="git" class="level3">
 <h3 class="anchored" data-anchor-id="git">Git</h3>
 <ul>
@@ -326,8 +345,16 @@ git commit -m "update starting points"
 <li>Check if the files are up to date: <code>git status</code></li>
 <li>Select a branch <code>git checkout</code></li>
 <li>Check the differences between local and remote: <code>git diff</code></li>
-<li>Check the difference of what is staged but not yet commited: <code>git diff --staged</code></li>
+<li>Check the difference of what is staged but not yet committed: <code>git diff --staged</code></li>
 <li>Merge the specified branch’s history into the current one: <code>git merge [branch]</code></li>
+<li>Stash the current work - i.e.&nbsp;save it for later use. E.g. you might have done edits on Zeus and want to pull other edits you made on your machine and committed from there <code>git stash</code>
+<ul>
+<li>To see the last stash: <code>git stash show -p</code></li>
+<li>Different stashes can be addressed by: <code>stash@{0}</code>, where <code>0</code> is the default one</li>
+<li>To see the differences between your stashed changes and any branch: <code>git diff stash@{0} branchname</code></li>
+<li>Apply the stashed changes: <code>git stash pop</code></li>
+<li>Clean all your stashes: <code>git stash clear</code></li>
+</ul></li>
 </ul>
 </section>
 <section id="bash" class="level3">
@@ -355,7 +382,16 @@ git commit -m "update starting points"
 <li>Then remove the empty directory: <code>rmdir [directory_name]</code></li>
 <li>Sometimes it works with: <code>rm -rf [directory_name]</code></li>
 </ul></li>
-<li><p>Open a file: <code>vim</code></p></li>
+<li><p>Open a file: <code>vim</code></p>
+<ul>
+<li>Move freely within the doc with arrow keys</li>
+<li>To enter insert mode (i.e.&nbsp;edit) press <code>i</code></li>
+<li>Close the file: <code>:q</code>
+<ul>
+<li>Discard changes you made: <code>:q!</code></li>
+<li>Write changes you made: <code>:wq</code></li>
+</ul></li>
+</ul></li>
 <li><p>Date and time of last edit of a file: <code>stat -c %y [filename]</code></p></li>
 </ul>
 </section>
@@ -413,6 +449,7 @@ scp zeus:/users_home/seme/aa1111/work/witch/results_bau.gdx C:\Users\asdasd\Docu
 <li><p>Open the WITCH error file and refresh it every 2 seconds: <code>watch tail errors_ssp2_calib.txt</code></p>
 <ul>
 <li>Visualize more than the default number of lines (e.g.&nbsp;40) <code>-n 40</code></li>
+<li>Exit with <code>CTRL+C</code></li>
 </ul></li>
 <li><p>Explore gdx files (e.g.&nbsp;WITCH results) in Zeus</p>
 <ul>

@@ -172,7 +172,11 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="add-to-path-in-macos">Add to $PATH in MacOS</h3>
 <p>You can check what is already in your $PATH by running</p>
 <pre><code>echo $PATH</code></pre>
-<p>If the program you’re interested in is not already present, you need to add it. Depending on the macOS version you’re running on your Mac, this can be done via either the bash shell or zsh (z shell). - For older macOS versions (before Catalina): bash (.bashrc or .bash_profile) - For macOS Catalina and later: zsh (.zshrc or .zprofile) You need to edit the right file</p>
+<p>If the program you’re interested in is not already present, you need to add it. Depending on the macOS version you’re running on your Mac, this can be done via either the bash shell or zsh (z shell).</p>
+<ul>
+<li>For older macOS versions (before Catalina): bash (<code>.bashrc</code> or <code>.bash\profile</code>)</li>
+<li>For macOS Catalina and later: zsh (<code>.zshrc</code> or <code>.zprofile</code>) You need to edit the right file</li>
+</ul>
 <pre><code>vim ~/.zprofile</code></pre>
 <p>OR</p>
 <pre><code>open ~/.zprofile</code></pre>
@@ -322,7 +326,7 @@ git push</code></pre>
 <ul>
 <li>In case there are subfolders, run the following: <code>for DIR in */;do for FILE in $DIR*.dvc; do dvc pull $FILE; done; done;</code></li>
 </ul></li>
-<li>In Windows: <code>FOR %i IN (*.dvc) DO dvc pull %i</code></li>
+<li>In Windows: <code>FOR %i IN (*.dvc) DO dvc pull "%i"</code></li>
 </ul></li>
 </ul>
 <section id="local-witch-translate-and-witch-plot" class="level3">
@@ -478,6 +482,12 @@ scp zeus:/users_home/seme/aa1111/work/witch/results_bau.gdx C:\Users\asdasd\Docu
 <li>Tool to convert a <code>.sh</code> file from <code>dos</code> to <code>unix</code>. Necessary after each Windows edit of the original <code>.sh</code> file. Execute in case of error <code>/bin/sh^M: bad interpreter: No such file or directory</code></li>
 </ul>
 <pre><code>dos2unix [filename]</code></pre>
+<ul>
+<li>Check who is using a specific queue, e.g.&nbsp;<code>p_gams</code>: <code>bjobs -u all | grep p_gams</code></li>
+<li>Check how much CPU is being used: <code>top</code></li>
+<li>Check how much space you are using: <code>gpfsrepquota</code></li>
+<li>Check memory occupied by different directories: <code>du -h -d1</code></li>
+</ul>
 </section>
 <section id="gams-good-practices-to-avoid-weird-errors" class="level4">
 <h4 class="anchored" data-anchor-id="gams-good-practices-to-avoid-weird-errors">GAMS good practices to avoid weird errors</h4>

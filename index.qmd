@@ -22,8 +22,8 @@ echo $PATH
 ```
 If the program you're interested in is not already present, you need to add it.
 Depending on the macOS version you’re running on your Mac, this can be done via either the bash shell or zsh (z shell).
-  -  For older macOS versions (before Catalina): bash (.bashrc or .bash\_profile)
-  -  For macOS Catalina and later: zsh (.zshrc or .zprofile)
+ - For older macOS versions (before Catalina): bash (`.bashrc` or `.bash\profile`)
+ - For macOS Catalina and later: zsh (`.zshrc` or `.zprofile`)
 You need to edit the right file 
 ```
 vim ~/.zprofile

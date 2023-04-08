@@ -12,8 +12,10 @@ Please find [here](https://drive.google.com/drive/folders/1ifQP_E3w6_pJc-g7ObihB
 
 ## Tools: add something to the Path
 
+Basically it means that the computer can find a program from wherever in the system.
+
 ### Add to Environment Variables in Windows
-To add a program to the PATH, search in Windows for environment variables and click on the button "Environment Variables" at the bottom of the window that opens up (should be the window of Sytem properties > Advanced tab). Under "User variables" select the "Path" option end edit it; click "New" and paste the address of the folder of the specific software you want to add. This is the address of the _.exe_ file of the program; it is usually found in the main folder of the program or in the bin folder.
+To add a program to the PATH, search in Windows for environment variables and click on the button "Environment Variables" at the bottom of the window that opens up (should be the window of System properties > Advanced tab). Under "User variables" select the "Path" option end edit it; click "New" and paste the address of the folder of the specific software you want to add. This is the address of the _.exe_ file of the program; it is usually found in the main folder of the program or in the bin folder. To check if what you've done works, try to write the name of the program (e.g. `gams`) in the generic terminal. It should recognize it.
 
 ### Add to \$PATH in MacOS
 You can check what is already in your \$PATH by running 
@@ -22,20 +24,23 @@ echo $PATH
 ```
 If the program you're interested in is not already present, you need to add it.
 Depending on the macOS version you’re running on your Mac, this can be done via either the bash shell or zsh (z shell).
+
  - For older macOS versions (before Catalina): bash (`.bashrc` or `.bash\profile`)
  - For macOS Catalina and later: zsh (`.zshrc` or `.zprofile`)
-You need to edit the right file 
+
+You need to edit the right file, you can only do this through trial and error. You can edit them by typing in the terminal one of the following:
 ```
 vim ~/.zprofile
-```
-OR 
-```
 open ~/.zprofile
 ```
-by adding 
+There, you add one of the following (if the one above doesn't work, try the one below).
 ```
-   export $PATH:/path/to/directory
+export $PATH:/path/to/directory
+export PATH="/path/to/directory:$PATH"
 ```
+It might be not trivial to find the location of your software. In case they are under _Library_ and you want to navigate there many
+To check if what you've done works, try to write the name of the program (e.g. `gams`) in the generic terminal. It should recognize it.
+
 ## Install software
 
 ### Homebrew for MacOS

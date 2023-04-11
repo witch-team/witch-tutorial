@@ -272,6 +272,9 @@ or
 ```
     bsub -n 18 -R "span[ptile=18]" -q p_gams -P 0477 gams run_witch.gms
 ```
+
+The command `bsub` can have many different options. Description is available here: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=bsub-options
+
 - See the output of the run: `bpeek`
 
     - See only the last part of the output of the run `-f` 

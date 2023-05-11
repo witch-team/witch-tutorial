@@ -2,60 +2,73 @@
 title: "witch-tutorial"
 ---
 
-
 # Manual for the sorcerer's apprentice
+
 Please find [here](https://drive.google.com/drive/folders/1ifQP_E3w6_pJc-g7ObihBMmsaVPMMJl8?usp=share_link):
 
 - Models: base versions of DICE and RICE50x
 - Slides on GAMS and IAMs
 - Videos of lectures on GAMS and IAMs
 
-## Tools: add something to the Path
+## Add a directory to your PATH {#sec-path}
 
-Basically it means that the computer can find a program from wherever in the system.
+The directories in your `PATH` are scanned by the operating system to find a program.
+It allows you to just write `R` instead of `C:\Users\Joe\R\bin\R.exe` or `/home/Joe/R/bin/R`.
+To create or update your `PATH`, go in the section of your OS.  
 
-### Add to Environment Variables in Windows
-To add a program to the PATH, search in Windows for environment variables and click on the button "Environment Variables" at the bottom of the window that opens up (should be the window of System properties > Advanced tab). Under "User variables" select the "Path" option end edit it; click "New" and paste the address of the folder of the specific software you want to add. This is the address of the _.exe_ file of the program; it is usually found in the main folder of the program or in the bin folder. To check if what you've done works, try to write the name of the program (e.g. `gams`) in the generic terminal. It should recognize it.
+### Windows
 
-### Add to \$PATH in MacOS
-You can check what is already in your \$PATH by running 
-```
-echo $PATH
-```
-If the program you're interested in is not already present, you need to add it.
-Depending on the macOS version you’re running on your Mac, this can be done via either the bash shell or zsh (z shell).
+1. Press the Windows key, then search for and select "System (Control Panel)".
+2. Click "Advanced system settings".
+3. Click "Environment Variables".
+4. Under "System Variables", find the `PATH` variable, select it, and click
+   "Edit". If there is no `PATH` variable, click "New".
+5. Add your directory to the beginning of the variable value followed by `;` (a
+   semicolon). For example, if the value was `C:\Windows\System32`, change it to
+   `C:\Users\Me\bin;C:\Windows\System32`.
+6. Click "OK".
+7. Restart your terminal, (and RStudio).
 
- - For older macOS versions (before Catalina): bash (`.bashrc` or `.bash\profile`)
- - For macOS Catalina and later: zsh (`.zshrc` or `.zprofile`)
+### Mac OS X
 
-You need to edit the right file, you can only do this through trial and error. You can edit them by typing in the terminal one of the following:
-```
-vim ~/.zprofile
-open ~/.zprofile
-```
-There, you add one of the following (if the one above doesn't work, try the one below).
-```
-export $PATH:/path/to/directory
-export PATH="/path/to/directory:$PATH"
-```
-It might be not trivial to find the location of your software. In case they are under _Library_ and you want to navigate there many
-To check if what you've done works, try to write the name of the program (e.g. `gams`) in the generic terminal. It should recognize it.
+1. Open the `.bash_profile` file in your home directory (for example,
+   `/Users/Joe/.bash_profile`) in a text editor. If you are using another shell, it can be `.zshrc` or `.zprofile`.
+2. Add `export PATH="your-dir:$PATH"` to the last line of the file, where
+   *your-dir* is the directory you want to add.
+3. Save the `.bash_profile` file.
+4. Restart your terminal.
 
-## Install software
+### Linux (including zeus)
 
-### Homebrew for MacOS
-Homebrew provides a fast way to install programs in MacOS. Learn how to install it from here: <https://brew.sh>
+1. Open the `.bashrc` file in your home directory (for example,
+   `/users_home/seme/xx0020/.bashrc`) in a text editor (`nano ~/.bashrc`, `vim ~/.bashrc`, ...).
+2. Add `export PATH="your-dir:$PATH"` to the last line of the file, where
+   *your-dir* is the directory you want to add.
+3. Save the `.bashrc` file.
+4. Restart your terminal.
 
-### GAMS installation
+## Install Software {#sec-software}
 
-You can always download the latest distribution at <https://www.gams.com/download>
-Please make sure to read the release notes <https://www.gams.com/latest/docs/RN_MAIN.html>
+### Software Package Manager (Advanced user)
 
-If you are installing GAMS from scratch, select in the installation process "Browse for a license file" and select gamslice.txt.
-If you are updating the license, copy the six lines (from the gamslice.txt file - someone should give it to you) to the clipboard. Then, open GAMS Studio and click on "Help > GAMS Licensing" or "Help > About GAMS", depending on your version of GAMS Studio. A message box will notify you that a GAMS license has been found on the clipboard. If 'Yes' is clicked, the new license will be installed automatically and presented via the "About GAMS" dialog. For more detailed installation instructions, please visit: <https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL>
-The full system documentation is provided electronically with the software and also available online at <https://www.gams.com/latest/docs> 
+Software Package Manager helps to install software on Mac OS X or windows. Software can be installed very easily, but you have to follow some rules and use the packaged versions of software. Here is a list of recommended software package manager:
+- For Mac OS X: Homebrew. Learn how to install it from here: <https://brew.sh> 
 
-Include GAMS in your environment variables. Add the address path of the version you are currently working with. To check if this worked properly, open Windows Command Prompt, type `gams` and see if it is recognized. (You can do the same thing in Terminal in MacOS)
+### GAMS
+
+Download the latest distribution at <https://www.gams.com/download>. 
+
+Read the release notes at <https://www.gams.com/latest/docs/RN_MAIN.html>
+
+GAMS requires a licence file `gamslice.txt` to have full access to the solvers. Sometimes you will have to install an older version because of your license, which you can find at the bottom of the [Download page](https://www.gams.com/download).
+
+If you are installing GAMS from scratch, select in the installation process "Browse for a license file" and select `gamslice.txt`.
+
+If you are updating the license, copy the six lines (from the gamslice.txt file - someone should give it to you) to the clipboard. Then, open `GAMS Studio` and click on "Help > GAMS Licensing" or "Help > About GAMS", depending on your version of `GAMS Studio`. A message box will notify you that a GAMS license has been found on the clipboard. Click 'Yes' to install the licence. Read [more detailed installation instructions](https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL).
+
+The documentation of the GAMS language and the solvers are available at <https://www.gams.com/latest/docs> 
+
+The WITCH environemnt requires GAMS in your PATH (see @sec-path): Use the path of the version you are currently working with. To check if this worked properly, open Windows Command Prompt, type `gams` and see if it is recognized. (You can do the same thing in a terminal in Mac OS X or linux).
 
 ### Install R
 Install the latest version of R and of RStudio. Install Rtools <https://cran.rstudio.com/bin/windows/Rtools/> and add it to the environment variables (the bin folder, as in `C:/rtools42/mingw64/bin`).

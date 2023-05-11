@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -74,19 +74,23 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">witch-tutorial</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -102,14 +106,15 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#manual-for-the-sorcerers-apprentice" id="toc-manual-for-the-sorcerers-apprentice" class="nav-link active" data-scroll-target="#manual-for-the-sorcerers-apprentice">Manual for the sorcerer’s apprentice</a>
   <ul class="collapse">
-  <li><a href="#tools-add-something-to-the-path" id="toc-tools-add-something-to-the-path" class="nav-link" data-scroll-target="#tools-add-something-to-the-path">Tools: add something to the Path</a>
+  <li><a href="#add-a-directory-to-your-path" id="toc-add-a-directory-to-your-path" class="nav-link" data-scroll-target="#add-a-directory-to-your-path">Add a directory to your PATH</a>
   <ul class="collapse">
-  <li><a href="#add-to-environment-variables-in-windows" id="toc-add-to-environment-variables-in-windows" class="nav-link" data-scroll-target="#add-to-environment-variables-in-windows">Add to Environment Variables in Windows</a></li>
-  <li><a href="#add-to-path-in-macos" id="toc-add-to-path-in-macos" class="nav-link" data-scroll-target="#add-to-path-in-macos">Add to $PATH in MacOS</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#mac-os-x" id="toc-mac-os-x" class="nav-link" data-scroll-target="#mac-os-x">Mac OS X</a></li>
+  <li><a href="#linux-including-zeus" id="toc-linux-including-zeus" class="nav-link" data-scroll-target="#linux-including-zeus">Linux (including zeus)</a></li>
   </ul></li>
-  <li><a href="#install-software" id="toc-install-software" class="nav-link" data-scroll-target="#install-software">Install software</a>
+  <li><a href="#install-software" id="toc-install-software" class="nav-link" data-scroll-target="#install-software">Install Software</a>
   <ul class="collapse">
-  <li><a href="#homebrew-for-macos" id="toc-homebrew-for-macos" class="nav-link" data-scroll-target="#homebrew-for-macos">Homebrew for MacOS</a></li>
+  <li><a href="#software-package-manager-advanced-user" id="toc-software-package-manager-advanced-user" class="nav-link" data-scroll-target="#software-package-manager-advanced-user">Software Package Manager (Advanced user)</a></li>
   <li><a href="#gams-installation" id="toc-gams-installation" class="nav-link" data-scroll-target="#gams-installation">GAMS installation</a></li>
   <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r">Install R</a></li>
   <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">Install Git</a></li>
@@ -148,6 +153,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -162,38 +168,52 @@ ul.task-list li input[type="checkbox"] {
 <li>Slides on GAMS and IAMs</li>
 <li>Videos of lectures on GAMS and IAMs</li>
 </ul>
-<section id="tools-add-something-to-the-path" class="level2">
-<h2 class="anchored" data-anchor-id="tools-add-something-to-the-path">Tools: add something to the Path</h2>
-<section id="add-to-environment-variables-in-windows" class="level3">
-<h3 class="anchored" data-anchor-id="add-to-environment-variables-in-windows">Add to Environment Variables in Windows</h3>
-<p>To add a program to the PATH, search in Windows for environment variables and click on the button “Environment Variables” at the bottom of the window that opens up (should be the window of Sytem properties &gt; Advanced tab). Under “User variables” select the “Path” option end edit it; click “New” and paste the address of the folder of the specific software you want to add. This is the address of the <em>.exe</em> file of the program; it is usually found in the main folder of the program or in the bin folder.</p>
+<section id="add-a-directory-to-your-path" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-directory-to-your-path">Add a directory to your PATH</h2>
+<p>The directories in your <code>PATH</code> are scanned by the operating system to find a program. It allows you to just write <code>R</code> instead of <code>C:\Users\Joe\R\bin\R.exe</code> or <code>/home/Joe/R/bin/R</code>. To create or update your <code>PATH</code>, go in the section of your OS.</p>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<ol type="1">
+<li>Press the Windows key, then search for and select “System (Control Panel)”.</li>
+<li>Click “Advanced system settings”.</li>
+<li>Click “Environment Variables”.</li>
+<li>Under “System Variables”, find the <code>PATH</code> variable, select it, and click “Edit”. If there is no <code>PATH</code> variable, click “New”.</li>
+<li>Add your directory to the beginning of the variable value followed by <code>;</code> (a semicolon). For example, if the value was <code>C:\Windows\System32</code>, change it to <code>C:\Users\Me\bin;C:\Windows\System32</code>.</li>
+<li>Click “OK”.</li>
+<li>Restart your terminal, (and RStudio).</li>
+</ol>
 </section>
-<section id="add-to-path-in-macos" class="level3">
-<h3 class="anchored" data-anchor-id="add-to-path-in-macos">Add to $PATH in MacOS</h3>
-<p>You can check what is already in your $PATH by running</p>
-<pre><code>echo $PATH</code></pre>
-<p>If the program you’re interested in is not already present, you need to add it. Depending on the macOS version you’re running on your Mac, this can be done via either the bash shell or zsh (z shell).</p>
-<ul>
-<li>For older macOS versions (before Catalina): bash (<code>.bashrc</code> or <code>.bash\profile</code>)</li>
-<li>For macOS Catalina and later: zsh (<code>.zshrc</code> or <code>.zprofile</code>) You need to edit the right file</li>
-</ul>
-<pre><code>vim ~/.zprofile</code></pre>
-<p>OR</p>
-<pre><code>open ~/.zprofile</code></pre>
-<p>by adding</p>
-<pre><code>   export $PATH:/path/to/directory</code></pre>
+<section id="mac-os-x" class="level3">
+<h3 class="anchored" data-anchor-id="mac-os-x">Mac OS X</h3>
+<ol type="1">
+<li>Open the <code>.bash_profile</code> file in your home directory (for example, <code>/Users/Joe/.bash_profile</code>) in a text editor. If you are using another shell, it can be <code>.zshrc</code> or <code>.zprofile</code>.</li>
+<li>Add <code>export PATH="your-dir:$PATH"</code> to the last line of the file, where <em>your-dir</em> is the directory you want to add.</li>
+<li>Save the <code>.bash_profile</code> file.</li>
+<li>Restart your terminal.</li>
+</ol>
+</section>
+<section id="linux-including-zeus" class="level3">
+<h3 class="anchored" data-anchor-id="linux-including-zeus">Linux (including zeus)</h3>
+<ol type="1">
+<li>Open the <code>.bashrc</code> file in your home directory (for example, <code>/users_home/seme/xx0020/.bashrc</code>) in a text editor (<code>nano ~/.bashrc</code>, <code>vim ~/.bashrc</code>, …).</li>
+<li>Add <code>export PATH="your-dir:$PATH"</code> to the last line of the file, where <em>your-dir</em> is the directory you want to add.</li>
+<li>Save the <code>.bashrc</code> file.</li>
+<li>Restart your terminal.</li>
+</ol>
 </section>
 </section>
 <section id="install-software" class="level2">
-<h2 class="anchored" data-anchor-id="install-software">Install software</h2>
-<section id="homebrew-for-macos" class="level3">
-<h3 class="anchored" data-anchor-id="homebrew-for-macos">Homebrew for MacOS</h3>
-<p>Homebrew provides a fast way to install programs in MacOS. Learn how to install it from here: <a href="https://brew.sh" class="uri">https://brew.sh</a></p>
+<h2 class="anchored" data-anchor-id="install-software">Install Software</h2>
+<section id="software-package-manager-advanced-user" class="level3">
+<h3 class="anchored" data-anchor-id="software-package-manager-advanced-user">Software Package Manager (Advanced user)</h3>
+<p>Software Package Manager helps to install software on Mac OS X or windows. Software can be installed very easily, but you have to follow some rules and use the packaged versions of software. Here is a list of recommended software package manager: - For Mac OS X: Homebrew. Learn how to install it from here: <a href="https://brew.sh" class="uri">https://brew.sh</a></p>
 </section>
 <section id="gams-installation" class="level3">
 <h3 class="anchored" data-anchor-id="gams-installation">GAMS installation</h3>
-<p>You can always download the latest distribution at <a href="https://www.gams.com/download" class="uri">https://www.gams.com/download</a> Please make sure to read the release notes <a href="https://www.gams.com/latest/docs/RN_MAIN.html" class="uri">https://www.gams.com/latest/docs/RN_MAIN.html</a></p>
-<p>If you are installing GAMS from scratch, select in the installation process “Browse for a license file” and select gamslice.txt. If you are updating the license, copy the six lines (from the gamslice.txt file - someone should give it to you) to the clipboard. Then, open GAMS Studio and click on “Help &gt; GAMS Licensing” or “Help &gt; About GAMS”, depending on your version of GAMS Studio. A message box will notify you that a GAMS license has been found on the clipboard. If ‘Yes’ is clicked, the new license will be installed automatically and presented via the “About GAMS” dialog. For more detailed installation instructions, please visit: <a href="https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL" class="uri">https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL</a> The full system documentation is provided electronically with the software and also available online at <a href="https://www.gams.com/latest/docs" class="uri">https://www.gams.com/latest/docs</a></p>
+<p>Download the latest distribution at <a href="https://www.gams.com/download" class="uri">https://www.gams.com/download</a>.</p>
+<p>Read the release notes at <a href="https://www.gams.com/latest/docs/RN_MAIN.html" class="uri">https://www.gams.com/latest/docs/RN_MAIN.html</a></p>
+<p>GAMS requires a licence file <code>gamslice.txt</code> to have full access to the solvers. Sometimes you will have to install an older version because of your license, which you can find at the bottom of the <a href="https://www.gams.com/download">Download page</a>.</p>
+<p>If you are installing GAMS from scratch, select in the installation process “Browse for a license file” and select <code>gamslice.txt</code>. If you are updating the license, copy the six lines (from the gamslice.txt file - someone should give it to you) to the clipboard. Then, open GAMS Studio and click on “Help &gt; GAMS Licensing” or “Help &gt; About GAMS”, depending on your version of GAMS Studio. A message box will notify you that a GAMS license has been found on the clipboard. If ‘Yes’ is clicked, the new license will be installed automatically and presented via the “About GAMS” dialog. For more detailed installation instructions, please visit: <a href="https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL" class="uri">https://www.gams.com/latest/docs/UG_MAIN.html#UG_INSTALL</a> The full system documentation is provided electronically with the software and also available online at <a href="https://www.gams.com/latest/docs" class="uri">https://www.gams.com/latest/docs</a></p>
 <p>Include GAMS in your environment variables. Add the address path of the version you are currently working with. To check if this worked properly, open Windows Command Prompt, type <code>gams</code> and see if it is recognized. (You can do the same thing in Terminal in MacOS)</p>
 </section>
 <section id="install-r" class="level3">
@@ -418,6 +438,7 @@ git push</code></pre>
 <li>Run WITCH on Zeus</li>
 </ul>
 <pre><code>    bsub -n 18 -R "span[ptile=18]" -q p_gams -P 0477 gams run_witch.gms</code></pre>
+<p>The command <code>bsub</code> can have many different options. Description is available here: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=bsub-options</p>
 <ul>
 <li><p>See the output of the run: <code>bpeek</code></p>
 <ul>
@@ -541,9 +562,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -555,7 +590,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -591,24 +643,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

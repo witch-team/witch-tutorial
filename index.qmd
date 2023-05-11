@@ -70,10 +70,10 @@ The documentation of the GAMS language and the solvers are available at <https:/
 
 The WITCH environemnt requires GAMS in your PATH (see @sec-path): Use the path of the version you are currently working with. To check if this worked properly, open Windows Command Prompt, type `gams` and see if it is recognized. (You can do the same thing in a terminal in Mac OS X or linux).
 
-### Install R
+### R
 Install the latest version of R and of RStudio. Install Rtools <https://cran.rstudio.com/bin/windows/Rtools/> and add it to the environment variables (the bin folder, as in `C:/rtools42/mingw64/bin`).
 
-### Install Git
+### Git
 Download Git for Windows <https://git-scm.com/download/win>. Install also GitKraken or GitHub Desktop. Add the latter(s) to the environment variables. Remember that if you are a student, you can ask for a student pro account of GitHub; using this to log into GitKraken allows you to download the full version.
 
 For MacOS you can use homebrew

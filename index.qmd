@@ -354,11 +354,24 @@ gdxdump all_data_temp_ssp2_bau.gdx symb=MCOST_INV | grep usa | grep elpc_new | g
 ```
 dos2unix [filename]
 ```
+#### Other useful commands
 
 - Check who is using a specific queue, e.g. `p_gams`: `bjobs -u all | grep p_gams`
 - Check how much CPU is being used: `top`
 - Check how much space you are using: `gpfsrepquota`
 - Check memory occupied by different directories: `du -h -d1`
+- Check text files: `cat <filename>`
+- Modify text files: `vim <filename>`
+- To check heavy files better to use: `less <filename>`. You can also use `/` when you do this and look for a certain string. Remember that to write `*` you need to do `\*`
+- To see just beginning of files: `head <filename>`
+- To see just end of files: `tail <filename>`
+- To show updates on a file every 2 seconds: `watch tail <filename>`
+- To show updates on a file every 2 seconds, specifying how many lines you want to see: `watch tail -n <lines_number> <filename>`
+- To show updates on several files: `watch tail <commmon_part_f_filename>*<commmon_part_f_filename>`, the star is basically a jolly
+- To show updates on several files, specifying the values: `watch tail <commmon_part_f_filename>{value1,value2}<commmon_part_f_filename>`
+
+
+
 
 #### GAMS good practices to avoid weird errors
 - If you can write one equation instead of two, do it. Helps very much the solver

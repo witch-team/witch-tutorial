@@ -356,6 +356,7 @@ dos2unix [filename]
 ```
 #### Other useful commands
 
+- Check cmcc-hpc folder in the private witch-team in GitHub https://github.com/witch-team/cmcc-hpc/tree/master, updated information on new commands and useful softwares
 - Check who is using a specific queue, e.g. `p_gams`: `bjobs -u all | grep p_gams`
 - Check how much CPU is being used: `top`
 - Check how much space you are using: `gpfsrepquota`
